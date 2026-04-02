@@ -6,8 +6,9 @@ Marketing and landing page for The Accord Project, a parent organization behind 
 
 The primary products are:
 
-- **Accord Pay** — Payment portal for organizations
-- **Accord Manage** — Organization and church management software
+- **AccordPAY** — Payment portal for organizations
+- **TapONE** — Church management software
+- **TapAPP** — Church member app
 - More products may be added over time
 
 ---
@@ -23,7 +24,7 @@ One-page app. Navigation links scroll to sections. No route changes.
 3. **Products** — Cards or feature blocks for each product
 4. **Features** — Shared platform capabilities (billing, member management, reporting, etc.)
 5. **Pricing** *(optional per product)* — Plans and tiers
-6. **Testimonials / Social proof** — Quotes from organizations using the products
+6. **Early Access** — Honest "be among the first" section; no fake reviews or stats until real ones exist
 7. **Contact / CTA** — Get started, request a demo, or contact form
 
 ---
