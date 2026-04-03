@@ -30,9 +30,10 @@ export default function About() {
             efficiently and grow their impact.
           </p>
           <p className="text-brown leading-relaxed">
-            From managing members and processing tithes to running a full church
-            administration - our products are thoughtfully designed to serve the people
-            behind the mission.
+            From managing members, bookings to processing donations or payments Running a full 
+            organization is complex, and we believe the software you use should make it easier, 
+            not harder. We are building a unified suite of software that simplifies your 
+            operations - our products are designed to serve the people behind your mission.
           </p>
         </div>
       </div>

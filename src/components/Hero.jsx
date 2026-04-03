@@ -13,9 +13,6 @@ export default function Hero() {
     <section id="hero" className="bg-warm-white min-h-screen flex items-center py-24">
       <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-center w-full">
         <div>
-          <span className="inline-block bg-info-bg border border-info-border text-dark-brown text-xs font-semibold px-4 py-1.5 rounded-full mb-6">
-            Coming Soon
-          </span>
           <h1 className="text-5xl md:text-6xl font-semibold text-dark-brown leading-tight mb-6">
             Empowering Organizations to Thrive
           </h1>
