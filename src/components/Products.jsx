@@ -15,7 +15,7 @@ const products = [
     ],
   },
   {
-    abbr: 'T1',
+    abbr: 'ONE',
     bg: 'bg-tan',
     name: 'TapONE',
     tagline: 'Church Management Software',
