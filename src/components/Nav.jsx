@@ -5,14 +5,13 @@ export default function Nav() {
 
   return (
     <nav className="sticky top-0 z-50 bg-white border-b border-mid-sand">
-      <div className="max-w-6xl mx-auto px-6 flex items-center justify-between h-16">
-        <a href="#" className="flex items-center gap-2.5">
-          <div className="w-7 h-7 bg-dark-brown rounded-full flex items-center justify-center">
-            <div className="w-2.5 h-2.5 bg-tan rounded-full"></div>
-          </div>
-          <span className="font-semibold text-dark-brown tracking-widest text-xs uppercase">
-            The Accord Project
-          </span>
+      <div className="max-w-6xl mx-auto px-6 flex items-center justify-between h-20">
+        <a href="#" className="flex items-center">
+          <img
+            src="/tap-logo-dark.jpg"
+            alt="The Accord Project"
+            className="h-12 w-12 rounded-xl object-cover"
+          />
         </a>
 
         <div className="hidden md:flex items-center gap-8">

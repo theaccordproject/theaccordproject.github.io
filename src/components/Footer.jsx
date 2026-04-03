@@ -9,13 +9,12 @@ export default function Footer() {
     <footer className="bg-dark-brown border-t border-white/10">
       <div className="max-w-6xl mx-auto px-6 py-16 grid md:grid-cols-4 gap-12">
         <div>
-          <div className="flex items-center gap-2.5 mb-4">
-            <div className="w-7 h-7 bg-tan rounded-full flex items-center justify-center">
-              <div className="w-2.5 h-2.5 bg-dark-brown rounded-full"></div>
-            </div>
-            <span className="text-white font-semibold tracking-widest text-xs uppercase">
-              The Accord Project
-            </span>
+          <div className="mb-4">
+            <img
+              src="/tap-logo-dark.jpg"
+              alt="The Accord Project"
+              className="h-12 w-12 rounded-xl object-cover"
+            />
           </div>
           <p className="text-mid-sand text-sm leading-relaxed">
             Empowering organizations to thrive through thoughtful, purpose-built software.
