@@ -4,11 +4,11 @@ The Accord Project's GitHub Pages site. Built with React and Vite, deployed to G
 
 ## Tech stack
 
-- **React 19** — UI framework
-- **Vite 8** — build tool and dev server with HMR
-- **Tailwind CSS v4** — utility-first CSS, integrated via `@tailwindcss/vite` plugin
-- **ESLint** — linting with `eslint-plugin-react-hooks` and `eslint-plugin-react-refresh`
-- **gh-pages** — deployment to GitHub Pages
+- **React 19** - UI framework
+- **Vite 8** - build tool and dev server with HMR
+- **Tailwind CSS v4** - utility-first CSS, integrated via `@tailwindcss/vite` plugin
+- **ESLint** - linting with `eslint-plugin-react-hooks` and `eslint-plugin-react-refresh`
+- **gh-pages** - deployment to GitHub Pages
 
 ## Project initialization
 
@@ -51,7 +51,7 @@ This runs `predeploy` (which runs `npm run build`) automatically before pushing.
 
 ### Setup notes
 
-- `vite.config.js` sets `base: '/'` — required because `*.github.io` repos are served from the root, not a subdirectory
+- `vite.config.js` sets `base: '/'` - required because `*.github.io` repos are served from the root, not a subdirectory
 - `public/.nojekyll` disables Jekyll processing on GitHub Pages, which is necessary to ensure Vite's built assets are served with the correct MIME types
 - GitHub Pages source: **`gh-pages` branch**, root folder
 
@@ -77,6 +77,6 @@ This runs `predeploy` (which runs `npm run build`) automatically before pushing.
 ## ESLint rules
 
 - `eslint:recommended` baseline
-- `eslint-plugin-react-hooks` — enforces Rules of Hooks
-- `eslint-plugin-react-refresh` — ensures components are HMR-compatible
-- `no-unused-vars` — errors on unused variables, except those matching `^[A-Z_]`
+- `eslint-plugin-react-hooks` - enforces Rules of Hooks
+- `eslint-plugin-react-refresh` - ensures components are HMR-compatible
+- `no-unused-vars` - errors on unused variables, except those matching `^[A-Z_]`

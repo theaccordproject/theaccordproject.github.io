@@ -21,7 +21,7 @@ export default function Hero() {
           </h1>
           <p className="text-brown text-lg leading-relaxed mb-8">
             A unified suite of software built for churches, nonprofits, and community
-            organizations. We are building something great — be the first to know when
+            organizations. We are building something great - be the first to know when
             we launch.
           </p>
 

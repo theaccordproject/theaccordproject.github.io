@@ -3,7 +3,7 @@ const plans = [
     name: 'Starter',
     price: 'Free',
     period: null,
-    description: 'Free for small congregations — no time limit, free forever!',
+    description: 'Free for small congregations - no time limit, free forever!',
     features: [
       'Up to 100 members',
       'Events & registration',
@@ -117,7 +117,7 @@ export default function Pricing() {
           ))}
         </div>
         <p className="text-center text-brown text-sm mt-10">
-          The Starter plan is free forever. We earn a small processing fee on donations — so if the free plan meets your needs, it stays free.
+          The Starter plan is free forever. We earn a small processing fee on donations - so if the free plan meets your needs, it stays free.
         </p>
       </div>
     </section>

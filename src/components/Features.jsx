@@ -33,7 +33,7 @@ const features = [
       </svg>
     ),
     title: 'Communication Tools',
-    body: 'Send announcements, event reminders, and updates to your entire congregation or targeted groups — by email, push notification, or in-app message.',
+    body: 'Send announcements, event reminders, and updates to your entire congregation or targeted groups - by email, push notification, or in-app message.',
   },
   {
     icon: (
@@ -42,7 +42,7 @@ const features = [
       </svg>
     ),
     title: 'Events & Check-In',
-    body: 'Plan services, classes, and community events. Manage RSVPs and run fast, contactless check-in from any device — no special hardware required.',
+    body: 'Plan services, classes, and community events. Manage RSVPs and run fast, contactless check-in from any device - no special hardware required.',
   },
   {
     icon: (

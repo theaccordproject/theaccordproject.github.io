@@ -13,7 +13,7 @@ export default function Testimonials() {
           in mind, and we are looking for early partners to shape what we build.
         </p>
         <p className="text-brown leading-relaxed">
-          If you lead a church, nonprofit, or community organization and want early access —
+          If you lead a church, nonprofit, or community organization and want early access -
           we would love to hear from you.
         </p>
         <a

@@ -31,7 +31,7 @@ export default function About() {
           </p>
           <p className="text-brown leading-relaxed">
             From managing members and processing tithes to running a full church
-            administration — our products are thoughtfully designed to serve the people
+            administration - our products are thoughtfully designed to serve the people
             behind the mission.
           </p>
         </div>
