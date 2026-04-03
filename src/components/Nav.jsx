@@ -6,7 +6,7 @@ export default function Nav() {
   return (
     <nav className="sticky top-0 z-50 bg-white border-b border-mid-sand">
       <div className="max-w-6xl mx-auto px-6 flex items-center justify-between h-20">
-        <a href="#" className="flex items-center">
+        <a href="https://www.theaccordproject.com/" className="flex items-center">
           <img src="/tap-logo.jpg" alt="The Accord Project" className="h-18 w-42 rounded-xl object-cover" />
         </a>
 
