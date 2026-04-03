@@ -44,6 +44,21 @@ const products = [
       'Branded for your church',
     ],
   },
+  {
+    abbr: 'BOOK',
+    bg: 'bg-dark-brown',
+    name: 'TapBOOK',
+    tagline: 'Booking and Appointment Management',
+    description:
+      'Simplify scheduling for your organization. TapBOOK lets members book appointments, reserve spaces, and manage availability with ease.',
+    features: [
+      'Online appointment booking',
+      'Room & resource reservations',
+      'Staff availability management',
+      'Automated reminders & confirmations',
+      'Calendar sync & reporting',
+    ],
+  },
 ]
 
 export default function Products() {
@@ -58,12 +73,12 @@ export default function Products() {
             Everything Your Organization Needs
           </h2>
           <p className="text-brown max-w-xl mx-auto leading-relaxed">
-            Three focused products. One connected platform. Built to work independently
+            Four focused products. One connected platform. Built to work independently
             or together as your organization grows.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-6">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           {products.map(({ abbr, bg, name, tagline, description, features }) => (
             <div
               key={name}

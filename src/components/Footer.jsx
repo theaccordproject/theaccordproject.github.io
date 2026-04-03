@@ -1,5 +1,5 @@
 const links = {
-  Products: ['AccordPAY', 'TapONE', 'TapAPP'],
+  Products: ['AccordPAY', 'TapONE', 'TapAPP', 'TapBOOK'],
   Company: ['About', 'Careers', 'Blog'],
   Legal: ['Privacy Policy', 'Terms of Service', 'Security'],
 }
