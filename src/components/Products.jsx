@@ -5,7 +5,7 @@ const products = [
     name: 'AccordPAY',
     tagline: 'Payment Portal for Organizations',
     description:
-      'Accept tithes, donations, event payments, and fees online or in person. Built with security and compliance at its core.',
+      'Accept donations, event payments, and fees online or in person. Built with security and compliance at its core.',
     features: [
       'Online & in-person payments',
       'Recurring giving & subscriptions',

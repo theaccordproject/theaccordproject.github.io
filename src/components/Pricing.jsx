@@ -116,9 +116,6 @@ export default function Pricing() {
             </div>
           ))}
         </div>
-        <p className="text-center text-brown text-sm mt-10">
-          The Starter plan is free forever. We earn a small processing fee on donations - so if the free plan meets your needs, it stays free.
-        </p>
       </div>
     </section>
   )

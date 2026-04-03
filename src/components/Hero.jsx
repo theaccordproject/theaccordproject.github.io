@@ -1,12 +1,35 @@
 import { useState } from 'react'
 
+const BREVO_API_KEY = import.meta.env.VITE_BREVO_API_KEY
+const BREVO_LIST_ID = Number(import.meta.env.VITE_BREVO_LIST_ID)
+
 export default function Hero() {
   const [submitted, setSubmitted] = useState(false)
   const [email, setEmail] = useState('')
+  const [loading, setLoading] = useState(false)
 
-  const onSubmit = (event) => {
+  const onSubmit = async (event) => {
     event.preventDefault()
-    setSubmitted(true)
+    setLoading(true)
+    try {
+      await fetch('https://api.brevo.com/v3/contacts', {
+        method: 'POST',
+        headers: {
+          'api-key': BREVO_API_KEY,
+          'content-type': 'application/json',
+        },
+        body: JSON.stringify({
+          email,
+          listIds: [BREVO_LIST_ID],
+          updateEnabled: true,
+        }),
+      })
+    } catch (err) {
+      console.error('Failed to subscribe', err)
+    } finally {
+      setLoading(false)
+      setSubmitted(true)
+    }
   }
 
   return (
@@ -24,8 +47,8 @@ export default function Hero() {
 
           {submitted ? (
             <div className="bg-success-bg border border-success-border text-dark-brown rounded-2xl px-6 py-5 inline-block">
-              <p className="font-semibold mb-1">You are on the list!</p>
-              <p className="text-sm">We will reach out as soon as we launch.</p>
+              <p className="font-semibold mb-1">We are so excited to have you onboard!</p>
+              <p className="text-sm">You are officially on the list — we cannot wait to share what we have been building. Stay tuned!</p>
             </div>
           ) : (
             <form onSubmit={onSubmit} className="flex flex-col sm:flex-row gap-3 max-w-md">
@@ -39,9 +62,10 @@ export default function Hero() {
               />
               <button
                 type="submit"
-                className="bg-dark-brown text-white px-6 py-3 rounded-full text-sm font-semibold hover:bg-brown transition-colors whitespace-nowrap"
+                disabled={loading}
+                className="bg-dark-brown text-white px-6 py-3 rounded-full text-sm font-semibold hover:bg-brown transition-colors whitespace-nowrap disabled:opacity-60"
               >
-                Get Updates
+                {loading ? 'Saving...' : 'Get Updates'}
               </button>
             </form>
           )}
