@@ -1,7 +1,6 @@
 import { useState } from 'react'
 
-const BREVO_API_KEY = import.meta.env.VITE_BREVO_API_KEY
-const BREVO_LIST_ID = Number(import.meta.env.VITE_BREVO_LIST_ID)
+const SUBSCRIBE_URL = import.meta.env.VITE_SUBSCRIBE_URL
 
 export default function ContactCTA() {
   const [submitted, setSubmitted] = useState(false)
@@ -12,17 +11,10 @@ export default function ContactCTA() {
     event.preventDefault()
     setLoading(true)
     try {
-      await fetch('https://api.brevo.com/v3/contacts', {
+      await fetch(SUBSCRIBE_URL, {
         method: 'POST',
-        headers: {
-          'api-key': BREVO_API_KEY,
-          'content-type': 'application/json',
-        },
-        body: JSON.stringify({
-          email,
-          listIds: [BREVO_LIST_ID],
-          updateEnabled: true,
-        }),
+        headers: { 'content-type': 'application/json' },
+        body: JSON.stringify({ email }),
       })
     } catch (err) {
       console.error('Failed to subscribe', err)
