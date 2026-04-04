@@ -33,7 +33,7 @@ const products = [
     abbr: 'APP',
     bg: 'bg-brown',
     name: 'TapAPP',
-    tagline: 'Church Member App',
+    tagline: 'Church Community App',
     description:
       "Put your church in every member's pocket. TapAPP keeps your congregation connected, informed, and engaged wherever they are.",
     features: [
@@ -50,7 +50,7 @@ const products = [
     name: 'TapBOOK',
     tagline: 'Booking and Appointment Management',
     description:
-      'Simplify scheduling for your organization. TapBOOK lets members book appointments, reserve spaces, and manage availability with ease.',
+      'Simplify scheduling for your organization. TapBOOK lets people book appointments, reserve spaces, and manage availability with ease.',
     features: [
       'Online appointment booking',
       'Room & resource reservations',

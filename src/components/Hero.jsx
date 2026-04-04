@@ -74,7 +74,7 @@ export default function Hero() {
             {[
               { abbr: 'PAY',  bg: 'bg-dark-brown', label: 'AccordPAY', sub: 'Payment Portal',    offset: '' },
               { abbr: 'ONE',  bg: 'bg-tan',         label: 'TapONE',   sub: 'Church Management', offset: 'translate-x-8' },
-              { abbr: 'APP',  bg: 'bg-brown',        label: 'TapAPP',   sub: 'Member App',        offset: '' },
+              { abbr: 'APP',  bg: 'bg-brown',        label: 'TapAPP',   sub: 'Community App',        offset: '' },
               { abbr: 'BOOK', bg: 'bg-dark-brown',  label: 'TapBOOK',  sub: 'Booking & Appointments', offset: 'translate-x-8' },
             ].map(({ abbr, bg, label, sub, offset }) => (
               <div
