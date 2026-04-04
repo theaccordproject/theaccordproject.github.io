@@ -8,7 +8,7 @@ The primary products are:
 
 - **AccordPAY** - Payment portal for organizations
 - **TapONE** - Church management software
-- **TapAPP** - Church member app
+- **TapAPP** - Church community app
 - More products may be added over time
 
 ---
