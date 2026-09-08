@@ -1,6 +1,6 @@
 # theaccordproject.github.io
 
-The Accord Project's GitHub Pages site. Built with React and Vite, deployed to GitHub Pages via the `gh-pages` npm package.
+The Accord Project's website, advertising its sole product, TAP Business. The company remains the site's primary brand, with a single-product marketing page focused on collecting email subscribers. Built with React and Vite and deployed to GitHub Pages via the `gh-pages` npm package.
 
 ## Tech stack
 
@@ -26,6 +26,14 @@ npm run dev
 ```
 
 The dev server starts at `http://localhost:5173` with hot module replacement enabled.
+
+### Email subscriptions
+
+Copy `.env.example` to `.env.local` and set `VITE_SUBSCRIBE_URL` to the subscription API URL before building. Vite embeds this public endpoint in the client bundle; do not put secrets in this value. The API must accept a JSON POST containing `{ "email": "subscriber@example.com" }`, support requests from the site's origin, and return a successful HTTP status only when the subscription is accepted.
+
+Both signup forms use the same component. Failed requests, timeouts, and missing configuration show a retry message rather than a false success. Subscription is the only conversion action; TAP Business accounts and paid modules are not available through this marketing site.
+
+Module prices are labeled as planned. Finalize the TAP Business transaction-fee policy before launch.
 
 ## Scripts
 

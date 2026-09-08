@@ -1,52 +1,37 @@
-const links = {
-  Products: ['AccordPAY', 'TapONE', 'TapAPP', 'TapBOOK'],
-  Company: ['About', 'Careers', 'Blog'],
-  Legal: ['Privacy Policy', 'Terms of Service', 'Security'],
-}
-
 export default function Footer() {
   return (
-    <footer className="bg-dark-brown border-t border-white/10">
-      <div className="max-w-6xl mx-auto px-6 py-16 grid md:grid-cols-4 gap-12">
+    <footer className="bg-dark-brown text-white">
+      <div className="max-w-6xl mx-auto px-6 py-12 flex flex-col md:flex-row justify-between gap-8">
         <div>
-          <div className="mb-4">
-            <img
-              src="/tap-logo-dark.jpg"
-              alt="The Accord Project"
-              className="h-12 w-12 rounded-xl object-cover"
-            />
-          </div>
-          <p className="text-mid-sand text-sm leading-relaxed">
-            Empowering organizations to thrive through thoughtful, purpose-built software.
+          <a href="#hero" className="font-semibold text-2xl tracking-tight">
+            The Accord Project
+          </a>
+          <p className="text-mid-sand text-sm mt-3 max-w-sm">
+            The company behind TAP Business. Your website and business tools—without the busywork.
           </p>
         </div>
-
-        {Object.entries(links).map(([group, items]) => (
-          <div key={group}>
-            <p className="text-white text-xs font-semibold uppercase tracking-widest mb-5">
-              {group}
-            </p>
-            <ul className="space-y-3">
-              {items.map((item) => (
-                <li key={item}>
-                  <a href="#" className="text-mid-sand text-sm hover:text-tan transition-colors">
-                    {item}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-        ))}
+        <nav
+          aria-label="Footer navigation"
+          className="flex flex-wrap gap-x-7 gap-y-4 text-sm text-mid-sand md:items-start"
+        >
+          <a href="#solutions" className="hover:text-white">
+            Why TAP Business
+          </a>
+          <a href="#features" className="hover:text-white">
+            Free website
+          </a>
+          <a href="#pricing" className="hover:text-white">
+            Pricing
+          </a>
+          <a href="#contact" className="hover:text-white">
+            Subscribe
+          </a>
+        </nav>
       </div>
-
-      <div className="border-t border-white/10">
-        <div className="max-w-6xl mx-auto px-6 py-6 flex flex-col sm:flex-row items-center justify-between gap-3">
-          <p className="text-mid-sand text-xs">
-            © {new Date().getFullYear()} The Accord Project. All rights reserved.
-          </p>
-          <p className="text-mid-sand text-xs">
-            Built for organizations that build communities.
-          </p>
+      <div className="border-t border-white/15">
+        <div className="max-w-6xl mx-auto px-6 py-6 flex flex-col sm:flex-row justify-between gap-3 text-xs text-mid-sand">
+          <p>© {new Date().getFullYear()} The Accord Project. All rights reserved.</p>
+          <p>TAP Business, by The Accord Project.</p>
         </div>
       </div>
     </footer>

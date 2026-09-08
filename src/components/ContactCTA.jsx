@@ -1,69 +1,27 @@
-import { useState } from 'react'
-
-const SUBSCRIBE_URL = import.meta.env.VITE_SUBSCRIBE_URL
+import SubscribeForm from './SubscribeForm'
 
 export default function ContactCTA() {
-  const [submitted, setSubmitted] = useState(false)
-  const [email, setEmail] = useState('')
-  const [loading, setLoading] = useState(false)
-
-  const onSubmit = async (event) => {
-    event.preventDefault()
-    setLoading(true)
-    try {
-      await fetch(SUBSCRIBE_URL, {
-        method: 'POST',
-        headers: { 'content-type': 'application/json' },
-        body: JSON.stringify({ email }),
-      })
-    } catch (err) {
-      console.error('Failed to subscribe', err)
-    } finally {
-      setLoading(false)
-      setSubmitted(true)
-    }
-  }
-
   return (
-    <section id="contact" className="bg-dark-brown py-28">
-      <div className="max-w-2xl mx-auto px-6 text-center">
-        <p className="text-tan uppercase tracking-widest text-xs font-semibold mb-6">
-          Stay in the Loop
-        </p>
-        <h2 className="text-4xl font-semibold text-white leading-snug mb-6">
-          We Are Launching Soon
-        </h2>
-        <p className="text-mid-sand leading-relaxed mb-10">
-          Drop your email and we will notify you the moment we go live. Early sign-ups
-          will get priority access and founding member pricing.
-        </p>
-
-        {submitted ? (
-          <div className="bg-success-bg border border-success-border text-dark-brown rounded-2xl px-8 py-6">
-            <p className="font-semibold mb-1">We are so excited to have you onboard!</p>
-            <p className="text-sm">You are officially on the list — we cannot wait to share what we have been building. Stay tuned!</p>
-          </div>
-        ) : (
-          <form onSubmit={onSubmit} className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
-            <input
-              type="email"
-              required
-              placeholder="Enter your email"
-              value={email}
-              onChange={(event) => setEmail(event.target.value)}
-              className="flex-1 bg-white/10 border border-mid-sand/40 text-white placeholder:text-mid-sand rounded-full px-5 py-3 text-sm outline-none focus:border-tan transition-colors"
-            />
-            <button
-              type="submit"
-              disabled={loading}
-              className="bg-tan text-dark-brown px-7 py-3 rounded-full text-sm font-semibold hover:bg-mid-sand transition-colors whitespace-nowrap disabled:opacity-60"
-            >
-              {loading ? 'Saving...' : 'Notify Me'}
-            </button>
-          </form>
-        )}
-
-        <p className="text-mid-sand/60 text-xs mt-5">No spam. Just a note when we launch.</p>
+    <section id="contact" className="bg-light-sand py-20 lg:py-24 border-t border-mid-sand">
+      <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-2 items-center gap-10 md:gap-16">
+        <div>
+          <p className="eyebrow mb-4">GOOD THINGS ARE TAKING SHAPE</p>
+          <h2 className="section-title">
+            Your next chapter
+            <br />
+            starts here.
+          </h2>
+          <p className="text-muted-brown mt-5 leading-relaxed max-w-md">
+            We’re building TAP Business for owners who want to run their business, without becoming website designers.
+            Subscribe to hear what’s next and know when we launch.
+          </p>
+        </div>
+        <div>
+          <h3 className="text-xl font-semibold mb-2">Be in the loop from the beginning.</h3>
+          <p className="text-sm text-muted-brown mb-6">Launch news and TAP Business updates, in your inbox.</p>
+          <SubscribeForm id="contact-email" />
+          <p className="text-xs text-muted-brown mt-4">No spam. No payment required. Just updates.</p>
+        </div>
       </div>
     </section>
   )

@@ -7,6 +7,7 @@
   --color-tan: #CBAD8D;
   --color-brown: #A48374;
   --color-dark-brown: #3A2D28;
+  --color-muted-brown: #746158;
 
   --color-info-bg: #bfdbfe;
   --color-info-border: #60a5fa;
@@ -20,6 +21,7 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 100px;
 }
 
 body {
@@ -28,4 +30,26 @@ body {
   color: #3A2D28;
   font-family: system-ui, 'Segoe UI', Roboto, sans-serif;
   -webkit-font-smoothing: antialiased;
+}
+
+@layer components {
+  .eyebrow {
+    @apply text-[10px] sm:text-xs font-semibold tracking-[0.14em] text-muted-brown;
+  }
+  .section-title {
+    @apply text-4xl sm:text-5xl font-semibold leading-[1.12] tracking-[-0.045em];
+  }
+  .button {
+    @apply inline-flex justify-center items-center gap-3 bg-dark-brown text-white px-5 py-3.5 rounded-lg text-sm font-medium transition-colors hover:bg-[#514037];
+  }
+}
+
+button, a, input { -webkit-tap-highlight-color: transparent; }
+button { cursor: pointer; }
+button:disabled { cursor: wait; }
+:focus-visible { outline: 3px solid #A48374; outline-offset: 4px; }
+::selection { background: #D1C7BD; color: #3A2D28; }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { transition: none !important; }
 }

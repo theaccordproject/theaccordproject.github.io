@@ -1,96 +1,41 @@
-import { useState } from 'react'
-
-const SUBSCRIBE_URL = import.meta.env.VITE_SUBSCRIBE_URL
+import SubscribeForm from './SubscribeForm'
+import Icon from './Icon'
+import ModuleCloud from './ModuleCloud'
 
 export default function Hero() {
-  const [submitted, setSubmitted] = useState(false)
-  const [email, setEmail] = useState('')
-  const [loading, setLoading] = useState(false)
-
-  const onSubmit = async (event) => {
-    event.preventDefault()
-    setLoading(true)
-    try {
-      await fetch(SUBSCRIBE_URL, {
-        method: 'POST',
-        headers: { 'content-type': 'application/json' },
-        body: JSON.stringify({ email }),
-      })
-    } catch (err) {
-      console.error('Failed to subscribe', err)
-    } finally {
-      setLoading(false)
-      setSubmitted(true)
-    }
-  }
-
   return (
-    <section id="hero" className="bg-warm-white min-h-screen flex items-center py-24">
-      <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-center w-full">
+    <section id="hero" className="bg-warm-white border-b border-mid-sand/60">
+      <div className="max-w-6xl mx-auto px-6 pt-16 pb-20 lg:py-24 grid lg:grid-cols-2 gap-16 items-center">
         <div>
-          <h1 className="text-5xl md:text-6xl font-semibold text-dark-brown leading-tight mb-6">
-            Empowering Organizations to Thrive
-          </h1>
-          <p className="text-brown text-lg leading-relaxed mb-8">
-            A unified suite of software built for churches, nonprofits, and community
-            organizations. We are building something great - be the first to know when
-            we launch.
+          <p className="eyebrow flex items-center gap-2">
+            <span className="w-2 h-2 rounded-full bg-dark-brown" /> TAP Business · COMING SOON
           </p>
-
-          {submitted ? (
-            <div className="bg-success-bg border border-success-border text-dark-brown rounded-2xl px-6 py-5 inline-block">
-              <p className="font-semibold mb-1">We are so excited to have you onboard!</p>
-              <p className="text-sm">You are officially on the list — we cannot wait to share what we have been building. Stay tuned!</p>
-            </div>
-          ) : (
-            <form onSubmit={onSubmit} className="flex flex-col sm:flex-row gap-3 max-w-md">
-              <input
-                type="email"
-                required
-                placeholder="Enter your email"
-                value={email}
-                onChange={(event) => setEmail(event.target.value)}
-                className="flex-1 bg-white border border-mid-sand text-dark-brown placeholder:text-brown/60 rounded-full px-5 py-3 text-sm outline-none focus:border-tan transition-colors"
-              />
-              <button
-                type="submit"
-                disabled={loading}
-                className="bg-dark-brown text-white px-6 py-3 rounded-full text-sm font-semibold hover:bg-brown transition-colors whitespace-nowrap disabled:opacity-60"
-              >
-                {loading ? 'Saving...' : 'Get Updates'}
-              </button>
-            </form>
-          )}
-
-          <p className="text-brown/60 text-xs mt-4">No spam. Just a note when we launch.</p>
-        </div>
-
-        <div className="relative flex items-center justify-center h-96">
-          <div className="w-80 h-80 bg-light-sand rounded-full absolute"></div>
-          <div className="w-64 h-64 bg-mid-sand rounded-full absolute translate-x-10 -translate-y-6"></div>
-          <div className="w-52 h-52 bg-tan/30 rounded-full absolute -translate-x-8 translate-y-8"></div>
-
-          <div className="relative z-10 flex flex-col gap-3">
-            {[
-              { abbr: 'PAY',  bg: 'bg-dark-brown', label: 'AccordPAY', sub: 'Payment Portal',    offset: '' },
-              { abbr: 'ONE',  bg: 'bg-tan',         label: 'TapONE',   sub: 'Church Management', offset: 'translate-x-8' },
-              { abbr: 'APP',  bg: 'bg-brown',        label: 'TapAPP',   sub: 'Community App',        offset: '' },
-              { abbr: 'BOOK', bg: 'bg-dark-brown',  label: 'TapBOOK',  sub: 'Booking & Appointments', offset: 'translate-x-8' },
-            ].map(({ abbr, bg, label, sub, offset }) => (
-              <div
-                key={label}
-                className={`bg-white rounded-2xl shadow-lg px-4 py-3.5 flex items-center gap-3 w-52 ${offset}`}
-              >
-                <div className={`w-10 h-10 ${bg} rounded-xl flex items-center justify-center flex-shrink-0`}>
-                  <span className="text-white text-xs font-bold">{abbr}</span>
-                </div>
-                <div>
-                  <p className="text-dark-brown text-sm font-semibold">{label}</p>
-                  <p className="text-brown text-xs">{sub}</p>
-                </div>
-              </div>
-            ))}
+          <h1 className="text-5xl sm:text-6xl xl:text-7xl font-semibold tracking-[-0.055em] leading-[1.06] mt-6 mb-7">
+            Your business.
+            <br />
+            Your website.
+            <br />
+            <span className="text-muted-brown">Less busywork.</span>
+          </h1>
+          <p className="text-lg text-muted-brown leading-relaxed max-w-lg">
+            Meet TAP Business, from The Accord Project. A professional website and a private business portal,
+            together. Start free, then add only the tools you need to run your business.
+          </p>
+          <div className="mt-8">
+            <SubscribeForm id="hero-email" />
           </div>
+          <p className="text-xs text-muted-brown mt-4">Subscribe for launch news. No spam. No payment required.</p>
+        </div>
+        <ModuleCloud />
+      </div>
+      <div className="border-t border-mid-sand/60">
+        <div className="max-w-6xl mx-auto px-6 py-6 flex flex-wrap justify-between gap-x-8 gap-y-3 text-sm font-medium">
+          {['Free website & portal', 'Your brand. Your domain.', 'Paid modules from $0.99/month'].map((text) => (
+            <span key={text} className="flex items-center gap-2">
+              <Icon name="check" className="w-4 h-4" />
+              {text}
+            </span>
+          ))}
         </div>
       </div>
     </section>
