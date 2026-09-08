@@ -33,7 +33,7 @@ Copy `.env.example` to `.env.local` and set `VITE_SUBSCRIBE_URL` to the subscrip
 
 Both signup forms share loading and success state, so subscribing once confirms both forms and prevents duplicate requests within the page. Failed requests and timeouts allow a retry; missing configuration shows an unavailable message. Subscription is the only conversion action; TAP Business accounts and paid modules are not available through this marketing site.
 
-`npm run deploy` checks that a public HTTPS subscription URL is configured before building or publishing. This validates configuration, not API behavior: confirm the backend accepts and stores a signup and handles CORS from the production origin before launch. Local builds and previews work without an endpoint.
+Builds and deployment do not require a subscription endpoint. To collect emails, configure `VITE_SUBSCRIBE_URL` before building and confirm the backend accepts signups from the production origin. Without an endpoint, the site still loads and the form displays an unavailable message when submitted.
 
 ### Signup measurement
 
