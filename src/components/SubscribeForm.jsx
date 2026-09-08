@@ -1,29 +1,14 @@
 import { useState } from 'react'
 import Icon from './Icon'
 
-const SUBSCRIBE_URL = import.meta.env.VITE_SUBSCRIBE_URL
-
-export default function SubscribeForm({ id }) {
+export default function SubscribeForm({ id, subscription }) {
   const [email, setEmail] = useState('')
-  const [status, setStatus] = useState('idle')
+  const { status, subscribe } = subscription
+  const hasError = status === 'error' || status === 'unavailable'
 
   async function onSubmit(event) {
     event.preventDefault()
-    if (status === 'loading') return
-    setStatus('loading')
-    try {
-      if (!SUBSCRIBE_URL) throw new Error('Subscription endpoint is not configured')
-      const response = await fetch(SUBSCRIBE_URL, {
-        method: 'POST',
-        headers: { 'content-type': 'application/json' },
-        body: JSON.stringify({ email: email.trim() }),
-        signal: AbortSignal.timeout(15000),
-      })
-      if (!response.ok) throw new Error('Subscription request failed')
-      setStatus('success')
-    } catch {
-      setStatus('error')
-    }
+    await subscribe(email, id === 'hero-email' ? 'hero' : 'footer')
   }
 
   return (
@@ -38,7 +23,7 @@ export default function SubscribeForm({ id }) {
           <label htmlFor={id} className="sr-only">
             Email address
           </label>
-          <div className="flex flex-col sm:flex-row gap-2">
+          <div className="flex flex-col sm:flex-row lg:flex-col xl:flex-row gap-2">
             <input
               id={id}
               name="email"
@@ -49,7 +34,7 @@ export default function SubscribeForm({ id }) {
               placeholder="Enter your email address"
               value={email}
               onChange={(event) => setEmail(event.target.value)}
-              aria-describedby={status === 'error' ? `${id}-error` : undefined}
+              aria-describedby={hasError ? `${id}-error` : undefined}
               className="min-w-0 flex-1 rounded-lg border border-mid-sand bg-white px-4 py-3.5 text-sm text-dark-brown placeholder:text-muted-brown"
             />
             <button
@@ -57,13 +42,15 @@ export default function SubscribeForm({ id }) {
               disabled={status === 'loading'}
               className="button whitespace-nowrap disabled:opacity-60"
             >
-              {status === 'loading' ? 'Subscribing…' : 'Notify me'}
+              {status === 'loading' ? 'Subscribing…' : 'Get launch updates'}
               <Icon name="arrow" className="w-4 h-4" />
             </button>
           </div>
-          {status === 'error' && (
+          {hasError && (
             <p id={`${id}-error`} role="alert" className="mt-3 bg-danger-bg text-dark-brown rounded-lg p-3 text-sm">
-              We couldn’t confirm your subscription. Please try again in a moment.
+              {status === 'unavailable'
+                ? 'Signup is temporarily unavailable. Please check back soon.'
+                : 'We couldn’t confirm your subscription. Please try again in a moment.'}
             </p>
           )}
         </form>

@@ -4,10 +4,10 @@ import WebsiteGraphic from './WebsiteGraphic'
 const features = [
   [
     'Make it yours',
-    'Logo, favicon & brand colors',
+    'Logo, browser icon & brand colors',
     'Light or dark theme',
-    'Homepage hero & calls to action',
-    'Custom-domain connection',
+    'Homepage message & action buttons',
+    'Connect your own domain',
   ],
   [
     'Tell your story',
@@ -20,7 +20,7 @@ const features = [
     'Help people find you',
     'Business hours & service areas',
     'Contact details, location & map',
-    'Social links & multi-tier footer',
+    'Social links & custom footer',
     'Desktop & mobile layouts',
   ],
   [
@@ -32,19 +32,34 @@ const features = [
   ],
 ]
 
+function FeatureItems({ items }) {
+  return (
+    <ul className="space-y-2.5 sm:space-y-4">
+      {items.map((item) => (
+        <li key={item} className="flex items-start gap-3 text-sm text-muted-brown">
+          <Icon name="check" className="w-4 h-4 mt-0.5 shrink-0 text-dark-brown" />
+          {item}
+        </li>
+      ))}
+    </ul>
+  )
+}
+
 export default function Features() {
   return (
-    <section id="features" className="bg-warm-white border-y border-mid-sand/60 py-20 lg:py-24">
+    <section id="features" className="bg-warm-white border-y border-mid-sand/60 py-12 sm:py-16 lg:py-24">
       <div className="max-w-6xl mx-auto px-6">
-        <div className="grid lg:grid-cols-2 items-center gap-10 lg:gap-16 mb-12">
+        <div className="grid lg:grid-cols-2 items-center gap-7 lg:gap-16 mb-8 lg:mb-12">
           <div className="max-w-xl">
             <p className="eyebrow mb-4">YOUR FOUNDATION, INCLUDED</p>
             <h2 className="section-title">
-              Free Website
-              <br />Your static website is free forever!
+              Your business website.
+              <br />
+              Free forever.
             </h2>
             <p className="text-muted-brown leading-relaxed mt-5">
-              Your TAP Business account, private business portal, static website, and visual website features are free.
+              Your website, business account, and private management portal are free. Make it yours with your brand,
+              your content, and your own domain.
             </p>
             <p className="text-muted-brown leading-relaxed mt-3">
               Payments &amp; Invoicing is included as a free website feature. Standard payment-processing fees apply.
@@ -58,18 +73,26 @@ export default function Features() {
           </div>
           <WebsiteGraphic />
         </div>
-        <div className="grid sm:grid-cols-2 xl:grid-cols-4 gap-5">
+        <div className="sm:hidden space-y-3">
           {features.map(([title, ...items]) => (
-            <article key={title} className="rounded-xl bg-white border border-mid-sand/60 p-7">
+            <details key={title} className="group rounded-xl bg-white border border-mid-sand/60 p-5">
+              <summary className="flex items-center justify-between gap-3 font-semibold cursor-pointer list-none [&::-webkit-details-marker]:hidden">
+                {title}
+                <span aria-hidden="true" className="text-xl font-normal group-open:rotate-45">
+                  +
+                </span>
+              </summary>
+              <div className="mt-4">
+                <FeatureItems items={items} />
+              </div>
+            </details>
+          ))}
+        </div>
+        <div className="hidden sm:grid sm:grid-cols-2 xl:grid-cols-4 gap-5">
+          {features.map(([title, ...items]) => (
+            <article key={title} className="rounded-xl bg-white border border-mid-sand/60 p-5 sm:p-7">
               <h3 className="font-semibold text-lg mb-5">{title}</h3>
-              <ul className="space-y-4">
-                {items.map((item) => (
-                  <li key={item} className="flex items-start gap-3 text-sm text-muted-brown">
-                    <Icon name="check" className="w-4 h-4 mt-0.5 shrink-0 text-dark-brown" />
-                    {item}
-                  </li>
-                ))}
-              </ul>
+              <FeatureItems items={items} />
             </article>
           ))}
         </div>
@@ -77,6 +100,10 @@ export default function Features() {
           You bring the content. TAP Business takes care of the layout. Add interactive business tools when you need
           them.
         </p>
+        <a href="#contact" className="button mt-6">
+          Get launch updates
+          <Icon name="arrow" className="w-4 h-4" />
+        </a>
       </div>
     </section>
   )

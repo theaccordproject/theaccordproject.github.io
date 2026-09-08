@@ -1,15 +1,15 @@
 import SubscribeForm from './SubscribeForm'
 
-export default function ContactCTA() {
+export default function ContactCTA({ subscription }) {
   return (
-    <section id="contact" className="bg-light-sand py-20 lg:py-24 border-t border-mid-sand">
+    <section id="contact" className="bg-light-sand py-12 sm:py-16 lg:py-24 border-t border-mid-sand">
       <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-2 items-center gap-10 md:gap-16">
         <div>
           <p className="eyebrow mb-4">GOOD THINGS ARE TAKING SHAPE</p>
           <h2 className="section-title">
-            Your next chapter
+            Be first to hear
             <br />
-            starts here.
+            when we launch.
           </h2>
           <p className="text-muted-brown mt-5 leading-relaxed max-w-md">
             We’re building TAP Business for owners who want to run their business, without becoming website designers.
@@ -19,8 +19,12 @@ export default function ContactCTA() {
         <div>
           <h3 className="text-xl font-semibold mb-2">Be in the loop from the beginning.</h3>
           <p className="text-sm text-muted-brown mb-6">Launch news and TAP Business updates, in your inbox.</p>
-          <SubscribeForm id="contact-email" />
+          <SubscribeForm id="contact-email" subscription={subscription} />
           <p className="text-xs text-muted-brown mt-4">No spam. No payment required. Just updates.</p>
+          <p id="email-updates" className="text-xs text-muted-brown mt-4 leading-relaxed">
+            By subscribing, you’re asking The Accord Project to use the email address you provide to send you TAP
+            Business launch news and product updates.
+          </p>
         </div>
       </div>
     </section>

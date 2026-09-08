@@ -2,10 +2,11 @@ import { useState } from 'react'
 
 const links = [
   ['#hero', 'TAP Business'],
-  ['#solutions', 'About'],
-  ['#features', 'Features'],
+  ['#solutions', 'Why TAP Business'],
+  ['#features', 'Free website'],
   ['#pricing', 'Pricing'],
-  ['#contact', 'Contact'],
+  ['#faq', 'FAQs'],
+  ['#contact', 'Launch updates'],
 ]
 
 export default function Nav() {
@@ -16,19 +17,22 @@ export default function Nav() {
         Skip to content
       </a>
       <nav aria-label="Main navigation" className="max-w-[1440px] mx-auto px-6 sm:px-10">
-        <div className="flex lg:grid lg:grid-cols-[1fr_auto_1fr] items-center justify-between h-20 lg:h-25 gap-5">
+        <div className="flex xl:grid xl:grid-cols-[1fr_auto_1fr] items-center justify-between h-20 xl:h-25 gap-5">
           <a href="#hero" aria-label="The Accord Project home" className="justify-self-start shrink-0">
-            <img src="/tap-logo.jpg" alt="The Accord Project" className="w-40 lg:w-52 h-auto" />
+            <img src="/tap-logo.jpg" alt="The Accord Project" className="w-40 xl:w-52 h-auto" />
           </a>
-          <div className="hidden lg:flex items-center gap-8 xl:gap-10 text-base">
+          <div className="hidden xl:flex items-center gap-6 text-sm">
             {links.map(([href, label]) => (
               <a key={href} href={href} className="text-muted-brown hover:text-dark-brown">
                 {label}
               </a>
             ))}
           </div>
-          <a href="#contact" className="hidden lg:inline-flex justify-self-end rounded-full bg-dark-brown text-white px-6 py-2.5 text-base font-medium transition-colors hover:bg-[#514037]">
-            Get Started
+          <a
+            href="#contact"
+            className="hidden xl:inline-flex justify-self-end rounded-full bg-dark-brown text-white px-6 py-2.5 text-base font-medium transition-colors hover:bg-[#514037]"
+          >
+            Get launch updates
           </a>
           <button
             type="button"
@@ -36,7 +40,7 @@ export default function Nav() {
             aria-controls="mobile-menu"
             aria-label={menuOpen ? 'Close navigation' : 'Open navigation'}
             onClick={() => setMenuOpen(!menuOpen)}
-            className="lg:hidden border border-mid-sand rounded-lg p-2.5 shrink-0"
+            className="xl:hidden border border-mid-sand rounded-lg p-2.5 shrink-0"
           >
             <svg
               aria-hidden="true"
@@ -54,12 +58,12 @@ export default function Nav() {
         {menuOpen && (
           <div
             id="mobile-menu"
-            className="lg:hidden border-t border-mid-sand py-5 flex flex-col gap-5"
+            className="xl:hidden border-t border-mid-sand py-5 flex flex-col gap-5"
             onKeyDown={(event) => {
               if (event.key === 'Escape') setMenuOpen(false)
             }}
           >
-            {[...links, ['#contact', 'Get Started']].map(([href, label]) => (
+            {[...links, ['#contact', 'Get launch updates']].map(([href, label]) => (
               <a href={href} key={label} onClick={() => setMenuOpen(false)} className="text-sm">
                 {label}
               </a>

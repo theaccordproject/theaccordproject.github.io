@@ -31,7 +31,15 @@ The dev server starts at `http://localhost:5173` with hot module replacement ena
 
 Copy `.env.example` to `.env.local` and set `VITE_SUBSCRIBE_URL` to the subscription API URL before building. Vite embeds this public endpoint in the client bundle; do not put secrets in this value. The API must accept a JSON POST containing `{ "email": "subscriber@example.com" }`, support requests from the site's origin, and return a successful HTTP status only when the subscription is accepted.
 
-Both signup forms use the same component. Failed requests, timeouts, and missing configuration show a retry message rather than a false success. Subscription is the only conversion action; TAP Business accounts and paid modules are not available through this marketing site.
+Both signup forms share loading and success state, so subscribing once confirms both forms and prevents duplicate requests within the page. Failed requests and timeouts allow a retry; missing configuration shows an unavailable message. Subscription is the only conversion action; TAP Business accounts and paid modules are not available through this marketing site.
+
+`npm run deploy` checks that a public HTTPS subscription URL is configured before building or publishing. This validates configuration, not API behavior: confirm the backend accepts and stores a signup and handles CORS from the production origin before launch. Local builds and previews work without an endpoint.
+
+### Signup measurement
+
+The shared subscription hook dispatches a `tap:signup` browser event with `{ phase, location }`. Phases are `attempt`, `success`, `error`, and `unavailable`; locations are `hero` and `footer`. Success is emitted only after an accepted HTTP response. No email addresses are included. If an analytics integration already provides `window.dataLayer`, equivalent `tap_signup_<phase>` events with `form_location` are pushed there too.
+
+No analytics service is installed or configured by this code. Connect these events to your chosen service to persist results and compare signup conversion against page visits. The hooks alone do not store metrics. Measurement integration failures never interrupt signup.
 
 Module prices are labeled as planned. Finalize the TAP Business transaction-fee policy before launch.
 

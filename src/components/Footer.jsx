@@ -23,8 +23,11 @@ export default function Footer() {
           <a href="#pricing" className="hover:text-white">
             Pricing
           </a>
+          <a href="#faq" className="hover:text-white">
+            FAQs
+          </a>
           <a href="#contact" className="hover:text-white">
-            Subscribe
+            Launch updates
           </a>
         </nav>
       </div>
